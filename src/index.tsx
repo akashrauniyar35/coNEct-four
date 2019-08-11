@@ -21,7 +21,7 @@ const Main = () => {
       <Header />
       <div className="Content">
         <PlayerDisplay turn={turn} />
-        <Board nextTurn={nextTurn} />
+        <Board nextTurn={nextTurn} turn={turn} />
       </div>
     </div>
   );
