@@ -11,7 +11,6 @@ const getCells = () => {
     const cells = [];
 
     for (let x = 0; x < CELLS_X; x++) {
-      reference_cell[y][x] = useRef(`${y}-${x}`);
       cells.push(<div className="Cell" key={`${y}-${x}`} />);
     }
 
