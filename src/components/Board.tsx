@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useRef} from 'react';
 
 const CELLS_X = 7;
 const CELLS_Y = 6;
