@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from "react";
 
 const CELLS_X = 7;
 const CELLS_Y = 6;
@@ -10,9 +10,7 @@ const getCells = () => {
     const cells = [];
 
     for (let x = 0; x < CELLS_X; x++) {
-      cells.push(
-        <div className="Cell" key={`${y}-${x}`} />
-      );
+      cells.push(<div className="Cell" key={`${y}-${x}`} />);
     }
 
     rows.push(
@@ -31,9 +29,7 @@ interface Props {
 
 const Board = ({ nextTurn }: Props) => (
   <>
-    <div className="Board">
-      {getCells()}
-    </div>
+    <div className="Board">{getCells()}</div>
 
     {/* This is for logic demonstration only */}
     <button className="NextTurn" onClick={nextTurn}>
