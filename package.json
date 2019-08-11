@@ -14,10 +14,12 @@
     "@types/classnames": "^2.2.9",
     "@types/react": "^16.8.24",
     "@types/react-dom": "^16.8.5",
+    "@types/react-modal": "^3.8.2",
     "classnames": "^2.2.6",
     "parcel-bundler": "^1.12.3",
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6"
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0",
+    "react-modal": "^3.9.1"
   },
   "devDependencies": {
     "sass": "^1.22.9",

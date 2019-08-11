@@ -1,21 +1,21 @@
-import React, { useRef } from "react";
+import React, { useRef } from "react"; //import ref
 
 const CELLS_X = 5;
 const CELLS_Y = 5;
 
 const getCells = (turn: number, nextTurn) => {
   const rows = [];
-  const reference_cell = [];
+  const reference_cell = []; //ref array
   for (let y = 0; y < CELLS_Y; y++) {
     const cells = [];
-    reference_cell[y] = [];
+    reference_cell[y] = []; //
     for (let x = 0; x < CELLS_X; x++) {
       reference_cell[y][x] = useRef(`${y}-${x}`);
       cells.push(
         <div
           className="Cell"
           key={`${y}-${x}`}
-          ref={reference_cell[y][x]}
+          ref={reference_cell[y][x]} //reference cell
           onClick={() => {
             if (checkRowValid(y, reference_cell)) {
               boxClicked(y, x, reference_cell[y][x], turn);
@@ -23,12 +23,14 @@ const getCells = (turn: number, nextTurn) => {
               setTimeout(() => {
                 checkWinner(reference_cell);
               }, 500);
+            } else {
+              alert("Follow the Rules Please");
             }
           }}
         />
       );
     }
-
+    console.log("THIS IS CELLS", cells);
     rows.push(
       <div className="Row" key={y}>
         {cells}
@@ -40,6 +42,8 @@ const getCells = (turn: number, nextTurn) => {
 };
 
 const checkWinner = reference_cell => {
+  //validating winner
+  console.log("REFF", reference_cell);
   reference_cell.forEach(row => {
     let point = row.map(cell => {
       return cell.current.classList.value;
@@ -54,10 +58,11 @@ const checkWinner = reference_cell => {
   });
 };
 const checkRowValid = (y, reference_cell) => {
+  //Cells can only be filled from the bottom up
   if (reference_cell[y + 1]) {
     let valid = false;
-    reference_cell[y + 1].forEach(c => {
-      if (!c.current.classList.contains("Cell")) {
+    reference_cell[y + 1].forEach(element => {
+      if (!element.current.classList.contains("Cell")) {
         valid = true;
       }
     });
@@ -65,14 +70,13 @@ const checkRowValid = (y, reference_cell) => {
   } else {
     return true;
   }
-  // return true;
 };
 
 const boxClicked = (y: number, x: number, inputEl, turn: number) => {
+  //Updating cellName with User1 or User2
   console.log(y, x);
-
   inputEl.current.classList.remove("Cell");
-  inputEl.current.classList.add(turn == 0 ? "User1" : "User2");
+  inputEl.current.classList.add(turn == 0 ? "User1" : "User2"); //styiling for users
 };
 
 interface Props {
@@ -82,14 +86,13 @@ interface Props {
 const Board = ({ nextTurn, turn }: Props) => (
   <>
     <div className="Board">{getCells(turn, nextTurn)}</div>
-    {/* This is for logic demonstration only */}
-    <button
-      className="NextTurn"
+    <button //Button to reset game
+      className="Reset"
       onClick={() => {
-        nextTurn();
+        location.reload(true);
       }}
     >
-      next turn
+      Reset Game
     </button>
   </>
 );
