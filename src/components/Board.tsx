@@ -1,11 +1,7 @@
-
 import React, { useRef } from "react"; //import ref
 
-import React from "react";
-
-
-const CELLS_X = 5;
-const CELLS_Y = 5;
+const CELLS_X = 4;
+const CELLS_Y = 4;
 
 const getCells = (turn: number, nextTurn) => {
   const rows = [];
@@ -35,7 +31,6 @@ const getCells = (turn: number, nextTurn) => {
         />
       );
 
-      cells.push(<div className="Cell" key={`${y}-${x}`} />);
 
     }
     console.log("THIS IS CELLS", cells);
@@ -101,15 +96,7 @@ const Board = ({ nextTurn, turn }: Props) => (
         location.reload(true);
       }}
     >
-      Reset Game
-
-    <div className="Board">{getCells()}</div>
-
-    {/* This is for logic demonstration only */}
-    <button className="NextTurn" onClick={nextTurn}>
-      next turn
-
-    </button>
+      Reset Game </button>
   </>
 );
 
