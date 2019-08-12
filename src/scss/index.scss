@@ -34,7 +34,7 @@ body {
   margin-top: 2rem;
 
   > div {
-    padding: 1rem;
+    padding: 0.5rem;
     color: #333;
 
     &.active {
@@ -45,6 +45,9 @@ body {
 }
 
 .Board {
+  background: gray;
+  padding: 1%;
+  border-radius: 5%;
   margin: 3rem auto 0;
   .Row {
     display: flex;
@@ -52,19 +55,39 @@ body {
       $size: 3rem;
       width: $size;
       height: $size;
-      background: #333;
-      margin: 0.1rem;
+      border-radius: 50%;
+      background: black;
+      margin: 0.2rem;
     }
   }
 }
 
-.NextTurn {
+.Reset {
   align-self: center;
+  background: blue;
   padding: 0.6rem;
   border: 1px dashed #000;
-  color: #000;
+  color: #fff;
   opacity: 0.3;
   margin-top: 2rem;
   cursor: pointer;
   font-size: 0.9rem;
+  border-radius: 15px;
+}
+
+.User1 {
+  $size: 3rem;
+  width: $size;
+  height: $size;
+  border-radius: 50%;
+  background: yellow !important;
+  margin: 0.2rem;
+}
+.User2 {
+  $size: 3rem;
+  width: $size;
+  height: $size;
+  border-radius: 50%;
+  background: orange !important;
+  margin: 0.2rem;
 }
